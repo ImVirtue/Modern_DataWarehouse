@@ -1,4 +1,4 @@
-# On-prem Modern Data Warehouse with 6.000.000 records 
+# An Ecommerce on-prem Modern Data Warehouse with 6.000.000 records 
 
 <img src="images/Modern_Data_Warehouse_01.jpg" width="600">
 
@@ -23,15 +23,31 @@ The Architecture is designed to:
 7. Creating an AI Agent product acts as a financial assistant to directly retrieve information from Data Warehouse and give thorough decisions for users.
 
 ## Architecture
-1.**Data Architecture**:
+ **Data Architecture**:
   <img src="images/Data_architecture.png" width="600">
 
-2.**AI Agent Assistant flow**:
+ **AI Agent Assistant flow**:
   <img src="images/agent_and_bi.png" width="600">
 
-3.**Minio structure**:
+ **Minio structure**:
   <img src="images/minio.png" width="600">
 
-4.**Airflow full flow dag**
+ **Airflow full flow dag**
   <img src="images/airflow_full_flow_dag.png" width="600">
+
+
+1. **Apache Airflow**: Orchestrates the ETL process and manages task distribution.
+2. **PostgreSQL**: An OLTP database for transactional data
+3. **Apache kafka**: Message Queue system for real-time data
+4. **Apache ZooKeeper**: Managing Kafka broker.
+5. **Apache Spark**: Big data processing.
+6. **Docker Compose**: To orchestrate the deployment of the above technologies.
+7. **ClickHouse**: An OLAP database for analytical data (Data Warehouse)
+8. **MinIO**: An object Storage layer (Datalake)
+9. **Apache Superset**: A BI tool.
+
+## Result
+**Superset**
+**AI Agent Assistant**
+   
 
