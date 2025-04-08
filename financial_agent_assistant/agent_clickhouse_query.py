@@ -10,10 +10,9 @@ client = OpenAI()
 
 LLM = os.environ.get("MODEL")
 
-# Tạo kết nối ClickHouse
 def create_clickhouse_connection():
     client = clickhouse_connect.get_client(
-        host='localhost',    # hoặc 'clickhouse-server' nếu dùng Docker
+        host='localhost',    
         port=8123,
         username='admin',
         password='Matkhauchung1@',
