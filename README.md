@@ -48,6 +48,8 @@ The Architecture is designed to:
 
 ## Result
 **Superset**
+<img src="images/superset.png" width="600">
+
 **AI Agent Assistant**
 ![Demo](images/financial_assistant.gif)
    
