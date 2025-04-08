@@ -1,0 +1,126 @@
+version: '3.8'
+
+x-spark-common: &spark-common
+  image: bitnami/spark:3.4.1
+  platform: linux/amd64
+  volumes:
+    - ./jobs:/opt/bitnami/spark/jobs
+  networks:
+    - virtue
+
+x-airflow-common: &airflow-common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  env_file:
+    - airflow.env
+  volumes:
+    - ./jobs:/opt/airflow/jobs
+    - ./dags:/opt/airflow/dags
+#    - ./logs:/opt/airflow/logs
+  depends_on:
+    - postgres
+  networks:
+    - virtue
+
+services:
+  spark-master:
+    <<: *spark-common
+    command: bin/spark-class org.apache.spark.deploy.master.Master
+    ports:
+      - "9090:8080"
+      - "7077:7077"
+
+  spark-worker:
+    <<: *spark-common
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_MODE: worker
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 4g
+      SPARK_MASTER_URL: spark://spark-master:7077
+
+  postgres:
+    image: postgres:14.0
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    networks:
+      - virtue
+
+  webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    depends_on:
+      - scheduler
+
+  scheduler:
+    <<: *airflow-common
+    command: bash -c "airflow db migrate && airflow users create --username admin --firstname Yusuf --lastname Ganiyu --role Admin --email airscholar@gmail.com --password admin && airflow scheduler"
+
+  main_database:
+      image: postgres:14.0
+      environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=admin
+        - POSTGRES_DB=oltp_ecommerce_db
+      logging:
+        options:
+          max-size: 10m
+          max-file: "3"
+      ports:
+        - "5433:5432"
+      networks:
+        - virtue
+
+  minio:
+      image: "minio/minio:latest"
+      volumes:
+        - ./.storage/minio:/data
+      ports:
+        - 9000:9000
+        - 9001:9001
+      environment:
+        MINIO_ACCESS_KEY: "fmbvirtueee"
+        MINIO_SECRET_KEY: "Matkhauchung1@"
+      command: server /data --console-address ":9001"
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://127.0.0.1:9000/minio/health/live"]
+        interval: 30s
+        timeout: 20s
+        retries: 3
+      networks:
+        - virtue
+
+  clickhouse:
+      image: clickhouse/clickhouse-server:latest
+      container_name: clickhouse
+      restart: always
+      ports:
+        - "8123:8123"
+        - "9002:9002"
+      volumes:
+        - clickhouse_data:/var/lib/clickhouse
+      environment:
+        - CLICKHOUSE_USER=admin
+        - CLICKHOUSE_PASSWORD=Matkhauchung1@
+        - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+      ulimits:
+        nofile:
+          soft: 262144
+          hard: 262144
+      networks:
+        - virtue
+
+networks:
+  virtue:
+
+volumes:
+  clickhouse_data:
+    driver: local
+

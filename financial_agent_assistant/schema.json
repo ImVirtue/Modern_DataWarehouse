@@ -1,0 +1,95 @@
+{
+  "DWH.dim_customer": {
+    "customer_key": "ID duy nhất của khách hàng (STRING)",
+    "customer_phone": "Số điện thoại khách hàng (STRING)",
+    "customer_email": "Email khách hàng (STRING)",
+    "customer_name": "Tên khách hàng (STRING)",
+    "is_member": "Khách hàng có là thành viên không (0/1) (UInt8)",
+    "customer_status": "Trạng thái khách hàng (STRING)",
+    "loyalty_points": "Điểm tích lũy (UInt64)"
+  },
+  "DWH.dim_category": {
+    "category_key": "ID duy nhất của danh mục (STRING)",
+    "category_name": "Tên danh mục (STRING)",
+    "parent_category_id": "ID danh mục cha (NULLABLE STRING)"
+  },
+  "DWH.dim_date": {
+    "date_key": "Khóa ngày (STRING, định dạng tùy bạn)",
+    "full_date": "Ngày đầy đủ (DATE)",
+    "day": "Ngày trong tháng (UInt8)",
+    "month": "Tháng (UInt8)",
+    "quarter": "Quý (UInt8)",
+    "year": "Năm (UInt16)",
+    "day_of_week": "Thứ trong tuần (STRING)",
+    "is_weekend": "Có phải cuối tuần không (UInt8)"
+  },
+  "DWH.dim_location": {
+    "location_key": "ID địa điểm (STRING)",
+    "country": "Quốc gia (STRING)",
+    "city": "Thành phố (STRING)",
+    "district": "Quận/Huyện (STRING)"
+  },
+  "DWH.dim_products": {
+    "product_key": "ID sản phẩm (STRING)",
+    "product_name": "Tên sản phẩm (STRING)",
+    "brand": "Thương hiệu (STRING)",
+    "cost": "Giá vốn (DECIMAL(10,2))",
+    "current_price": "Giá bán hiện tại (DECIMAL(10,2))",
+    "stock_quantity": "Tồn kho (UInt64)"
+  },
+  "DWH.dim_shipments": {
+    "shipment_key": "ID đơn vận chuyển (STRING)",
+    "carrier": "Đơn vị vận chuyển (STRING)",
+    "status": "Trạng thái vận chuyển (STRING)"
+  },
+  "DWH.dim_vendors": {
+    "vendor_key": "ID nhà cung cấp (STRING)",
+    "name": "Tên nhà cung cấp (STRING)",
+    "email": "Email liên hệ (STRING)",
+    "representative_phone": "SĐT người đại diện (STRING)",
+    "type": "Loại nhà cung cấp (STRING)",
+    "expense": "Chi phí nhập hàng (DECIMAL(15,2))",
+    "revenue": "Doanh thu từ nhà cung cấp (DECIMAL(15,2))"
+  },
+  "DWH.fact_orders": {
+    "order_id": "ID đơn hàng (STRING)",
+    "order_detail_id": "ID chi tiết đơn hàng (STRING)",
+    "time_id": "Thời gian đặt hàng (STRING, khóa tới dim_date)",
+    "customer_id": "ID khách hàng (STRING, khóa tới dim_customer)",
+    "location_id": "ID địa điểm giao hàng (STRING, khóa tới dim_location)",
+    "product_id": "ID sản phẩm (STRING, khóa tới dim_products)",
+    "category_id": "ID danh mục sản phẩm (STRING, khóa tới dim_category)",
+    "shipment_id": "ID vận chuyển (STRING, khóa tới dim_shipments)",
+    "quantity": "Số lượng mua (UInt64)",
+    "price": "Giá bán (DECIMAL(10,2))",
+    "cost_price": "Giá vốn (DECIMAL(10,2))",
+    "order_status": "Trạng thái đơn hàng (STRING)",
+    "payment_status": "Trạng thái thanh toán (STRING)"
+  },
+  "relations": [
+    {
+      "from": "DWH.fact_orders.customer_id",
+      "to": "DWH.dim_customer.customer_key"
+    },
+    {
+      "from": "DWH.fact_orders.product_id",
+      "to": "DWH.dim_products.product_key"
+    },
+    {
+      "from": "DWH.fact_orders.category_id",
+      "to": "DWH.dim_category.category_key"
+    },
+    {
+      "from": "DWH.fact_orders.time_id",
+      "to": "DWH.dim_date.date_key"
+    },
+    {
+      "from": "DWH.fact_orders.location_id",
+      "to": "DWH.dim_location.location_key"
+    },
+    {
+      "from": "DWH.fact_orders.shipment_id",
+      "to": "DWH.dim_shipments.shipment_key"
+    }
+  ]
+}

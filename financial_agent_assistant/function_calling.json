@@ -1,0 +1,23 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "extract_from_db",
+            "description": "Retrieve information of users's requirement based on data from database",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "user_requirement": {
+                        "type": "string",
+                        "description": "The detailed description of what users want to retrieve"
+                    }
+                },
+                "required": [
+                    "user_requirement"
+                ],
+                "additionalProperties": false
+            },
+            "strict": true
+        }
+    }
+  ]
