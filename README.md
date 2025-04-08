@@ -26,13 +26,13 @@ The Architecture is designed to:
  **Data Architecture**:
   <img src="images/Data_architecture.png" width="600">
 
- **AI Agent Assistant flow**:
+ **AI Agent Assistant Flow**:
   <img src="images/agent_and_bi.png" width="600">
 
- **Minio structure**:
+ **Minio Structure**:
   <img src="images/minio.png" width="600">
 
- **Airflow full flow dag**
+ **Airflow Full Flow Dag**
   <img src="images/airflow_full_flow_dag.png" width="600">
 
 
@@ -46,7 +46,7 @@ The Architecture is designed to:
 8. **MinIO**: An object Storage layer (Datalake)
 9. **Apache Superset**: A BI tool.
 
-## Result
+## Result - Visualization
 **Superset**
 <img src="images/superset.png" width="600">
 
