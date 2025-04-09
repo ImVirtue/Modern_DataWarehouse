@@ -1,6 +1,6 @@
 # An ecommerce on-prem Modern Data Warehouse with 6.000.000 records 
 
-<img src="images/Modern_Data_Warehouse_01.jpg" width="600">
+<img src="images/Modern_Data_Warehouse_01.jpg" width="500">
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -48,7 +48,7 @@ The Architecture is designed to:
 
 ## Result - Visualization
 **Superset**
-<img src="images/superset.png" width="600">
+<img src="images/superset_v2.png" width="600">
 
 **AI Agent Assistant**
 ![Demo](images/financial_assistant.gif)
