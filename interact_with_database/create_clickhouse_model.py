@@ -16,7 +16,7 @@ def create_clickhouse_tables():
             password=CLICKHOUSE_PASSWORD
         )
 
-        print("Kết nối thành công đến ClickHouse server")
+        print("Successfully Access to the ClickHouse server")
 
         client.command("DROP DATABASE IF EXISTS DWH")
         client.command("CREATE DATABASE DWH")
@@ -136,12 +136,11 @@ def create_clickhouse_tables():
             try:
                 client.command(ddl)
                 table_name = ddl.split("DWH.")[1].split("(")[0].strip()
-                print(f"✅ Đã tạo bảng: {table_name}")
+                print(f"Successfully created table: {table_name}")
             except ClickHouseError as e:
-                print(f"❌ Lỗi khi tạo bảng: {e}")
+                print(f"An error occurred: {e}")
                 continue
 
-        # Kiểm tra các bảng đã tạo
         tables = client.query("SHOW TABLES FROM DWH").result_rows
         for table in tables:
             print(f"- {table[0]}")
