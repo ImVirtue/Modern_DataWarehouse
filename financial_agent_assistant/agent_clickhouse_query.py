@@ -2,7 +2,7 @@ import json
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
-import clickhouse_connect  # <-- clickhouse driver
+import clickhouse_connect  
 
 load_dotenv()
 
@@ -38,7 +38,7 @@ def extract_from_db(user_requirement):
     )
 
     query = response.choices[0].message.content
-    query = query.split("```sql\n")[-1].split("\n```")[0]  # nếu có markdown
+    query = query.split("```sql\n")[-1].split("\n```")[0]  # remove sql markdown
 
     print(query)
 
