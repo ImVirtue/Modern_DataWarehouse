@@ -25,21 +25,24 @@ The Architecture is designed to:
 ## Architecture
  **Data Architecture**:
  <p align="center">
-  <img src="images/Data_architecture.png" width="500">
+  <img src="images/Data_architecture.png" width="900">
  </p>
+ 
  **AI Agent Assistant Flow**:
  <p align="center">
-  <img src="images/agent_and_bi.png" width="500">
+  <img src="images/agent_and_bi.png" width="900">
  </p>
+ 
  **Minio Structure**:
 <p align="center">
   <img src="images/MinIO_Raw_Processed.png" width="400"/>
-  <img src="images/MinIO_serving.png" width="400"/>
+  <img src="images/MinIO_serving.png" width="500"/>
 </p>
 
  **Airflow Full Flow Dag fact_orders**
-<img src="images/fullflow_dag.png" width="900">
-
+ <p align="center">
+  <img src="images/fullflow_dag.png" width="900">
+ </p>
 
 1. **Apache Airflow**: Orchestrates the ETL process and manages task distribution.
 2. **PostgreSQL**: An OLTP database for transactional data
