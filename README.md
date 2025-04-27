@@ -24,10 +24,10 @@ The Architecture is designed to:
 
 ## Architecture
  **Data Architecture**:
-  <img src="images/Data_architecture.png" width="600">
+<img src="images/Data_architecture.png" width="600">
 
  **AI Agent Assistant Flow**:
-  <img src="images/agent_and_bi.png" width="600">
+<img src="images/agent_and_bi.png" width="600">
 
  **Minio Structure**:
 <p align="center">
@@ -36,7 +36,7 @@ The Architecture is designed to:
 </p>
 
  **Airflow Full Flow Dag fact_orders**
-  <img src="images/fullflow_dag.png" width="600">
+<img src="images/fullflow_dag.png" width="600">
 
 
 1. **Apache Airflow**: Orchestrates the ETL process and manages task distribution.
