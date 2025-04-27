@@ -1,6 +1,9 @@
 # An ecommerce on-prem Modern Data Warehouse with 6.000.000 records Integrating with financial AI Agent
 
-<img src="images/Modern_Data_Warehouse_01.jpg" width="500">
+ <p align="center">
+  <img src="images/Modern_Data_Warehouse_01.jpg" width="900">
+ </p>
+
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -66,7 +69,8 @@ The Architecture is designed to:
 9. **Apache Superset**: A BI tool.
 
 ## Result - Visualization
-**Superset - Batching**:
+**Superset - Batching**: 
+Daily ETL from OLTP source to OLAP Datawarehouse to visualize data
 <p align="center">
   <img src="images/Superset_product.png" width="300"/>
   <img src="images/Superset_customer.png" width="300"/>
@@ -80,6 +84,7 @@ Change data (left side) in Postgresql, then Kafka -  Debezium Program (right sid
 </p>
 
 **AI Agent Assistant**:
+Ask AI Agent Asisstant information about our company
  <p align="center">
   <img src="images/financial_assistant.gif" width="500"/>
 </p>
