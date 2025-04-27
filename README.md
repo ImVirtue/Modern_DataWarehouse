@@ -53,8 +53,8 @@ The Architecture is designed to:
 **Superset**
 <p align="center">
   <img src="images/Superset_product.png" width="300"/>
-  <img src="images/Superset_customer.png" width="400"/>
-  <img src="images/Superset_time.png" width="400"/>
+  <img src="images/Superset_customer.png" width="300"/>
+  <img src="images/Superset_time.png" width="300"/>
 </p>
 
 **AI Agent Assistant**
