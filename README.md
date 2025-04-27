@@ -30,10 +30,13 @@ The Architecture is designed to:
   <img src="images/agent_and_bi.png" width="600">
 
  **Minio Structure**:
-  <img src="images/minio.png" width="600">
+<p align="center">
+  <img src="images/MinIO_Raw_Processed.png" width="400"/>
+  <img src="images/MinIO_serving.png" width="400"/>
+</p>
 
- **Airflow Full Flow Dag**
-  <img src="images/airflow_full_flow_dag.png" width="600">
+ **Airflow Full Flow Dag fact_orders**
+  <img src="images/fullflow_dag.png" width="600">
 
 
 1. **Apache Airflow**: Orchestrates the ETL process and manages task distribution.
@@ -48,7 +51,11 @@ The Architecture is designed to:
 
 ## Result - Visualization
 **Superset**
-<img src="images/superset_v2.png" width="600">
+<p align="center">
+  <img src="images/Superset_product.png" width="300"/>
+  <img src="images/Superset_customer.png" width="400"/>
+  <img src="images/Superset_time.png" width="400"/>
+</p>
 
 **AI Agent Assistant**
 ![Demo](images/financial_assistant.gif)
