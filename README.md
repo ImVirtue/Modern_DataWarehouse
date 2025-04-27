@@ -24,11 +24,13 @@ The Architecture is designed to:
 
 ## Architecture
  **Data Architecture**:
-<img src="images/Data_architecture.png" width="500">
-
+ <p align="center">
+  <img src="images/Data_architecture.png" width="500">
+ </p>
  **AI Agent Assistant Flow**:
-<img src="images/agent_and_bi.png" width="500">
-
+ <p align="center">
+  <img src="images/agent_and_bi.png" width="500">
+ </p>
  **Minio Structure**:
 <p align="center">
   <img src="images/MinIO_Raw_Processed.png" width="400"/>
