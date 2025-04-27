@@ -78,7 +78,7 @@ Daily ETL from OLTP source to OLAP Datawarehouse to visualize data
 </p>
 
 **CDC - Streaming**:
-Change data (left side) in Postgresql, then Kafka -  Debezium Program (right side) will automatically capture changes in real time
+Change data (left side) in Postgresql, then Kafka -  Debezium Program (right side) will automatically capture changes in real time from pre-registered topics
 <p align="center">
   <img src="images/realtime_CDC.gif" width="500"/>
 </p>
