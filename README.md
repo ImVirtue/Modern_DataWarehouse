@@ -75,10 +75,14 @@ The Architecture is designed to:
 
 **CDC - Streaming**:
 Change data (left side) in Postgresql, then Kafka -  Debezium Program (right side) will automatically capture changes in real time
- ![Demo](images/reatime_CDC.gif)
+<p align="center">
+  <img src="images/reatime_CDC.gif" width="500"/>
+</p>
 
 **AI Agent Assistant**:
- ![Demo](images/financial_assistant.gif)
+ <p align="center">
+  <img src="images/financial_assistant.gif" width="500"/>
+</p>
 
    
 
