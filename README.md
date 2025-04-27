@@ -39,10 +39,21 @@ The Architecture is designed to:
   <img src="images/MinIO_serving.png" width="500"/>
 </p>
 
- **Airflow Full Flow Dag fact_orders**
+**Airflow Full Flow Dag fact_orders**:
  <p align="center">
   <img src="images/fullflow_dag.png" width="900">
  </p>
+
+**Debezium OLTP connector**:
+<p align="center">
+  <img src="images/Debezium_oltp_connector.png" width="900"/>
+</p>
+
+**Kafka control center**:
+<p align="center">
+  <img src="images/Kafka_control_center.png" width="900"/>
+</p>
+
 
 1. **Apache Airflow**: Orchestrates the ETL process and manages task distribution.
 2. **PostgreSQL**: An OLTP database for transactional data
@@ -51,18 +62,27 @@ The Architecture is designed to:
 5. **Apache Spark**: Big data processing.
 6. **Docker Compose**: To orchestrate the deployment of the above technologies.
 7. **ClickHouse**: An OLAP database for analytical data (Data Warehouse)
-8. **MinIO**: An object Storage layer (Datalake)
+8. **Minio**: An object Storage layer (Datalake)
 9. **Apache Superset**: A BI tool.
 
 ## Result - Visualization
-**Superset**
+**Superset - Batching**:
 <p align="center">
   <img src="images/Superset_product.png" width="300"/>
   <img src="images/Superset_customer.png" width="300"/>
   <img src="images/Superset_time.png" width="300"/>
 </p>
 
-**AI Agent Assistant**
-![Demo](images/financial_assistant.gif)
+**CDC - Streaming**:
+Change data (left side) in Postgresql, then Kafka -  Debezium Program (right side) will automatically capture changes in real time
+<p align="center">
+ ![Demo](images/reatime_CDC.gif)
+</p>
+
+**AI Agent Assistant**:
+<p align="center">
+ ![Demo](images/financial_assistant.gif)
+</p>
+
    
 
